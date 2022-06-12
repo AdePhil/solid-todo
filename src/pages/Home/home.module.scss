@@ -1,0 +1,52 @@
+
+@import 'utils/variables';
+.home {
+  min-height: 100vh;
+  background: $bg;
+  color: $white;
+
+  font-size: 2rem;
+
+  .listContainer {
+    width: clamp(200px, 70%, 600px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header {
+    height: 20px;
+    background: $gradient;
+  }
+  .heading {
+    font-size: 7rem;
+  }
+  
+  .list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .listItem {
+    padding: 5px 20px;
+    background: $light-bg;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .listButton {
+    display: flex;
+    & > *:not(:last-child) {
+      margin-right: 20px;
+    }
+    button {
+      border: none;
+      padding: 3px 12px;
+    }
+    & > *:last-child {
+      background-color: $danger;
+      color: $white;
+    }
+  }
+  
+}

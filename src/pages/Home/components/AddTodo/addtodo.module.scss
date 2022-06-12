@@ -1,0 +1,29 @@
+@import 'utils/variables';
+
+.form {
+  margin: 40px 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.input {
+  padding: 15px 20px;
+  background-color: white;
+  color: lighten($bg, 15);
+  flex: 1;
+  outline: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.addBtn {
+  padding: 20px 30px;
+  background: $green;
+  border: none;
+  outline: none;
+  color: $white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.16);
+  font-size: 1.8rem;
+  font-weight: bold;
+} 
