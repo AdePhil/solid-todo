@@ -1,14 +1,18 @@
 # Solid-Todo
+
 - Playing around with solidJS
 
 ## Features
-- [X] In memory Crud of todos
-- [ ] Use effects to update page title
-- [ ] Save to Localstorage 
+
+- [x] In memory Crud of todos
+- [x] Use effects to update page title
+- [x] Save to Localstorage
 - [ ] Try superbase/Prisma
-- [X] Learn how to add scss to vite
+- [x] Learn how to add scss to vite
+- [x] Added path aliases
 
 ## Learnings
+
 - Signals - values that change over time (State).
 - Derived signals - values that changes when signals change (Computed state).
 - Effects - effects are observers that listening to changes in signals.

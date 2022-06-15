@@ -1,33 +1,41 @@
-import { createSignal, For } from "solid-js";
+import { createEffect, createSignal, For } from "solid-js";
 import styles from "./home.module.scss";
 import { uid } from "uid";
 import AddTodo from "./components/AddTodo/AddTodo";
 import { Todo } from "./types";
-
+import Storage from "@/utils/storage";
 
 const Home = () => {
-  const [todos, setTodos] = createSignal<Todo[]>([]);
+  const [todos, setTodos] = createSignal<Todo[]>(Storage.get("todos") || []);
   const [currentTodo, setCurrentTodo] = createSignal<Todo | undefined>();
 
+  createEffect(() => {
+    document.title = "Solid Todos";
+  });
+
   const addTodo = (todo: Todo) => {
-    setTodos([todo, ...todos()]);
-  }
+    const newTodos = [todo, ...todos()];
+    setTodos(newTodos);
+    Storage.set("todos", newTodos);
+  };
 
   const removeTodo = (id: string) => {
-    const remainingTodos = todos().filter(todo => todo.id !== id);
+    const remainingTodos = todos().filter((todo) => todo.id !== id);
     setTodos(remainingTodos);
-  }
+    Storage.set("todos", remainingTodos);
+  };
 
   const editTodo = (todo: Todo) => {
-    const newTodos = todos().map(t => {
-      if(t.id === todo.id) {
+    const newTodos = todos().map((t) => {
+      if (t.id === todo.id) {
         return todo;
       }
       return t;
-    })
+    });
     setTodos(newTodos);
+    Storage.set("todos", newTodos);
     setCurrentTodo(undefined);
-  }
+  };
 
   return (
     <div class={styles.home}>
@@ -43,7 +51,9 @@ const Home = () => {
                 <li class={styles.listItem}>
                   <p>{todo.value}</p>
                   <div class={styles.listButton}>
-                    <button onClick={() => setCurrentTodo(todo)}>{isEditingTodo() ? 'Editing' : 'Edit'}</button>
+                    <button onClick={() => setCurrentTodo(todo)}>
+                      {isEditingTodo() ? "Editing" : "Edit"}
+                    </button>
                     <button onClick={() => removeTodo(todo.id)}>Delete</button>
                   </div>
                 </li>

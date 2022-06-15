@@ -12,9 +12,9 @@
     "noEmit": true,
     "isolatedModules": true,
     "noUncheckedIndexedAccess": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@utils/*": ["utils/*"]
+      "@/*": ["src/*"]
     }
   }
 }

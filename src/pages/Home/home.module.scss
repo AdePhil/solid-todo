@@ -1,5 +1,5 @@
 
-@import 'utils/variables';
+@import  '@/utils/_variables';
 .home {
   min-height: 100vh;
   background: $bg;
@@ -8,7 +8,7 @@
   font-size: 2rem;
 
   .listContainer {
-    width: clamp(200px, 70%, 600px);
+    width: clamp(200px, 90%, 600px);
     margin-left: auto;
     margin-right: auto;
   }

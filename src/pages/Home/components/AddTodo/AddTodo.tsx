@@ -17,6 +17,12 @@ const AddTodo = (props: AddTodoProps) => {
     setText(props.todo?.value || "");
   });
 
+  createEffect(() => {
+    if (isEditing()) {
+      document.title = "Editing Todo";
+    }
+  });
+
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     const todo = {
